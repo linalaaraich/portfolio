@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bae6fd"/>
+      <stop offset="60%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#f0fdf4"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#sky)"/>
+  <!-- Mountains -->
+  <polygon points="0,300 80,160 160,260 200,140 280,220 340,120 400,200 400,400 0,400" fill="#166534" opacity="0.7"/>
+  <polygon points="0,320 60,220 140,280 200,180 300,250 400,190 400,400 0,400" fill="#15803d" opacity="0.6"/>
+  <polygon points="0,350 100,280 180,320 260,260 350,300 400,270 400,400 0,400" fill="#22c55e" opacity="0.5"/>
+  <!-- Snow caps -->
+  <polygon points="185,140 200,140 215,165 200,158" fill="white" opacity="0.6"/>
+  <polygon points="325,120 340,120 355,150 340,142" fill="white" opacity="0.5"/>
+  <!-- Trees -->
+  <g fill="#064e3b" opacity="0.4">
+    <polygon points="50,350 55,310 60,350"/>
+    <polygon points="80,340 87,290 94,340"/>
+    <polygon points="320,330 328,280 336,330"/>
+    <polygon points="350,345 356,305 362,345"/>
+  </g>
+  <!-- Sun -->
+  <circle cx="320" cy="60" r="30" fill="#fde68a" opacity="0.7"/>
+  <circle cx="320" cy="60" r="20" fill="#fef3c7" opacity="0.5"/>
+  <!-- Clouds -->
+  <g fill="white" opacity="0.5">
+    <ellipse cx="80" cy="70" rx="40" ry="15"/>
+    <ellipse cx="100" cy="65" rx="25" ry="12"/>
+    <ellipse cx="220" cy="50" rx="30" ry="10"/>
+  </g>
+  <!-- Birds -->
+  <g stroke="#1a1a2e" stroke-width="1.5" fill="none" opacity="0.2">
+    <path d="M150,90 Q155,85 160,90 Q165,85 170,90"/>
+    <path d="M180,75 Q184,71 188,75 Q192,71 196,75"/>
+  </g>
+</svg>
