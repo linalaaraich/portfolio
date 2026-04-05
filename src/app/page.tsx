@@ -1,307 +1,216 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   GitFork,
   Link2,
   Mail,
-  ExternalLink,
-  ArrowDown,
-  Code2,
-  Palette,
-  Zap,
-  Send,
+  ArrowRight,
+  Sparkles,
+  Heart,
+  Leaf,
 } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { LeafDecoration } from "@/components/blobs";
 import { cn } from "@/lib/utils";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
 };
 
 const stagger = {
   visible: { transition: { staggerChildren: 0.15 } },
 };
 
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A full-stack e-commerce app with cart, checkout, and payment integration. Built with modern web technologies.",
-    tags: ["Next.js", "Stripe", "Tailwind", "PostgreSQL"],
-    link: "#",
-  },
-  {
-    title: "AI Chat Dashboard",
-    description:
-      "Real-time AI-powered chat interface with conversation history, model switching, and analytics.",
-    tags: ["React", "OpenAI", "WebSocket", "TypeScript"],
-    link: "#",
-  },
-  {
-    title: "Task Management App",
-    description:
-      "Collaborative project management tool with drag-and-drop boards, real-time updates, and team features.",
-    tags: ["Next.js", "Prisma", "tRPC", "Tailwind"],
-    link: "#",
-  },
-];
-
-const skills = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Python",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "Docker",
-  "Git",
-  "Figma",
-  "REST APIs",
-  "GraphQL",
+const highlights = [
+  { icon: <Sparkles size={20} />, label: "Creative Developer" },
+  { icon: <Heart size={20} />, label: "UI/UX Enthusiast" },
+  { icon: <Leaf size={20} />, label: "Clean Code Advocate" },
 ];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Nav */}
-      <nav className="fixed top-0 z-50 w-full glass">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <a href="#" className="text-lg font-bold gradient-text">
-            L.
-          </a>
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <a href="#about" className="transition-colors hover:text-foreground">
-              About
-            </a>
-            <a href="#projects" className="transition-colors hover:text-foreground">
-              Projects
-            </a>
-            <a href="#contact" className="transition-colors hover:text-foreground">
-              Contact
-            </a>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen">
       {/* Hero */}
-      <section className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
+      <section className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 text-center overflow-hidden">
+        {/* Decorative leaves */}
+        <LeafDecoration className="absolute top-20 right-10 w-24 h-24 text-primary opacity-40 rotate-12 hidden md:block" />
+        <LeafDecoration className="absolute bottom-32 left-16 w-16 h-16 text-primary opacity-30 -rotate-45 hidden md:block" />
+
+        {/* Dots pattern overlay */}
+        <div className="absolute inset-0 dots-pattern opacity-40" />
+
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center gap-6"
+          className="relative flex flex-col items-center gap-6"
         >
           <motion.div variants={fadeUp}>
-            <Badge variant="secondary" className="mb-2 px-4 py-1.5 text-sm">
+            <Badge variant="secondary" className="mb-2 px-4 py-1.5 text-sm border border-primary/20">
+              <span className="mr-1.5 inline-block h-2 w-2 rounded-full bg-primary animate-pulse" />
               Available for work
             </Badge>
           </motion.div>
+
+          {/* Avatar */}
+          <motion.div variants={fadeUp}>
+            <div className="relative">
+              <div className="organic h-28 w-28 bg-gradient-to-br from-emerald-400 via-emerald-500 to-teal-600 p-1">
+                <div className="organic h-full w-full bg-background flex items-center justify-center">
+                  <span className="text-3xl font-bold gradient-text">L</span>
+                </div>
+              </div>
+              <div className="absolute -bottom-1 -right-1 h-6 w-6 rounded-full bg-primary flex items-center justify-center">
+                <Sparkles size={12} className="text-primary-foreground" />
+              </div>
+            </div>
+          </motion.div>
+
           <motion.h1
             variants={fadeUp}
-            className="text-5xl font-bold tracking-tight sm:text-7xl"
+            className="text-5xl font-bold tracking-tight sm:text-7xl leading-tight"
           >
             Hi, I&apos;m{" "}
             <span className="gradient-text">Lina</span>
           </motion.h1>
+
           <motion.p
             variants={fadeUp}
-            className="max-w-lg text-lg text-muted-foreground"
+            className="max-w-lg text-lg text-muted-foreground leading-relaxed"
           >
-            A passionate developer crafting beautiful, performant web experiences.
-            I turn ideas into elegant digital products.
+            A passionate developer who crafts beautiful, performant web experiences.
+            I turn ideas into elegant digital products with a touch of whimsy.
           </motion.p>
-          <motion.div variants={fadeUp} className="flex gap-3">
-            <a href="#projects" className={cn(buttonVariants())}>
-              View My Work
-            </a>
-            <a href="#contact" className={cn(buttonVariants({ variant: "outline" }))}>
-              Get in Touch
-            </a>
+
+          {/* Highlight pills */}
+          <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-2">
+            {highlights.map((h) => (
+              <div
+                key={h.label}
+                className="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm text-primary"
+              >
+                {h.icon}
+                {h.label}
+              </div>
+            ))}
           </motion.div>
-          <motion.div variants={fadeUp} className="flex gap-4 pt-2">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
+
+          <motion.div variants={fadeUp} className="flex gap-3 pt-2">
+            <Link
+              href="/portfolio/projects"
+              className={cn(buttonVariants(), "gap-2 rounded-full px-6")}
             >
-              <GitFork size={20} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              View My Work
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/portfolio/about"
+              className={cn(buttonVariants({ variant: "outline" }), "rounded-full px-6")}
             >
-              <Link2 size={20} />
-            </a>
-            <a
-              href="mailto:hello@example.com"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Mail size={20} />
-            </a>
+              About Me
+            </Link>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="flex gap-4 pt-4">
+            {[
+              { href: "https://github.com", icon: <GitFork size={18} />, label: "GitHub" },
+              { href: "https://linkedin.com", icon: <Link2 size={18} />, label: "LinkedIn" },
+              { href: "mailto:hello@example.com", icon: <Mail size={18} />, label: "Email" },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target={s.href.startsWith("mailto") ? undefined : "_blank"}
+                rel={s.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                className="group flex items-center gap-2 rounded-full bg-muted/50 px-4 py-2 text-sm text-muted-foreground transition-all hover:bg-primary/10 hover:text-primary"
+              >
+                {s.icon}
+                <span className="hidden sm:inline">{s.label}</span>
+              </a>
+            ))}
           </motion.div>
         </motion.div>
+
+        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10"
+          transition={{ delay: 2, duration: 1 }}
+          className="absolute bottom-8"
         >
-          <a href="#about">
-            <ArrowDown size={20} className="animate-bounce text-muted-foreground" />
-          </a>
+          <div className="flex flex-col items-center gap-2 text-muted-foreground/50 text-xs">
+            <span>scroll</span>
+            <div className="h-8 w-px bg-gradient-to-b from-primary/30 to-transparent" />
+          </div>
         </motion.div>
       </section>
 
-      {/* About */}
-      <section id="about" className="py-24 px-6">
+      {/* Featured section */}
+      <section className="relative py-24 px-6">
+        <div className="wavy-top absolute inset-0 bg-muted/30" />
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           variants={stagger}
-          className="mx-auto max-w-5xl"
+          className="relative mx-auto max-w-4xl"
         >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-12 text-center">
-            About <span className="gradient-text">Me</span>
+          <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-4 text-center">
+            What I <span className="gradient-text">Create</span>
           </motion.h2>
+          <motion.p variants={fadeUp} className="text-center text-muted-foreground mb-12 max-w-lg mx-auto">
+            From pixel-perfect interfaces to robust backends, I build experiences that delight.
+          </motion.p>
 
-          <div className="grid gap-8 md:grid-cols-3 mb-12">
+          <div className="grid gap-6 sm:grid-cols-3">
             {[
               {
-                icon: <Code2 size={24} />,
-                title: "Clean Code",
-                desc: "I write maintainable, well-tested code following best practices and modern patterns.",
+                title: "Web Apps",
+                desc: "Full-stack applications with modern frameworks, designed for scale and delight.",
+                gradient: "from-emerald-500/20 to-teal-500/20",
+                emoji: "🌿",
               },
               {
-                icon: <Palette size={24} />,
-                title: "Great Design",
-                desc: "I care deeply about UI/UX, creating interfaces that are both beautiful and intuitive.",
+                title: "UI/UX Design",
+                desc: "Thoughtful interfaces that balance beauty with usability and accessibility.",
+                gradient: "from-green-400/20 to-emerald-500/20",
+                emoji: "🎨",
               },
               {
-                icon: <Zap size={24} />,
-                title: "Performance",
-                desc: "I optimize for speed and efficiency, ensuring fast load times and smooth interactions.",
+                title: "Open Source",
+                desc: "Contributing to the community with tools and libraries that solve real problems.",
+                gradient: "from-teal-400/20 to-cyan-500/20",
+                emoji: "🌱",
               },
             ].map((item) => (
               <motion.div key={item.title} variants={fadeUp}>
-                <Card className="glass glow border-0 h-full">
-                  <CardContent className="flex flex-col gap-3 p-6">
-                    <div className="gradient-text">{item.icon}</div>
-                    <h3 className="font-semibold text-lg">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </CardContent>
-                </Card>
+                <div className={cn(
+                  "card-whimsy glow rounded-2xl border border-border/50 bg-gradient-to-br p-6 h-full",
+                  item.gradient
+                )}>
+                  <span className="text-3xl mb-3 block">{item.emoji}</span>
+                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
 
-          <motion.div variants={fadeUp}>
-            <h3 className="text-lg font-semibold mb-4 text-center">Skills & Technologies</h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {skills.map((skill) => (
-                <Badge key={skill} variant="secondary" className="px-3 py-1">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      <Separator className="mx-auto max-w-5xl" />
-
-      {/* Projects */}
-      <section id="projects" className="py-24 px-6">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={stagger}
-          className="mx-auto max-w-5xl"
-        >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-12 text-center">
-            Featured <span className="gradient-text">Projects</span>
-          </motion.h2>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {projects.map((project) => (
-              <motion.div key={project.title} variants={fadeUp}>
-                <Card className="glass glow border-0 h-full group transition-transform hover:-translate-y-1">
-                  <CardContent className="flex flex-col gap-4 p-6 h-full">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-semibold text-lg">{project.title}</h3>
-                      <a
-                        href={project.link}
-                        className="text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        <ExternalLink size={16} />
-                      </a>
-                    </div>
-                    <p className="text-sm text-muted-foreground flex-1">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tags.map((tag) => (
-                        <Badge
-                          key={tag}
-                          variant="outline"
-                          className="text-xs"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
-      <Separator className="mx-auto max-w-5xl" />
-
-      {/* Contact */}
-      <section id="contact" className="py-24 px-6">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={stagger}
-          className="mx-auto max-w-xl text-center"
-        >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-4">
-            Let&apos;s <span className="gradient-text">Connect</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-muted-foreground mb-8">
-            I&apos;m always open to new opportunities and collaborations.
-            Feel free to reach out!
-          </motion.p>
-          <motion.div variants={fadeUp}>
-            <a
-              href="mailto:hello@example.com"
-              className={cn(buttonVariants({ size: "lg" }), "gap-2")}
+          <motion.div variants={fadeUp} className="text-center mt-12">
+            <Link
+              href="/portfolio/projects"
+              className={cn(buttonVariants({ variant: "outline" }), "rounded-full px-6 gap-2")}
             >
-              <Send size={16} />
-              Say Hello
-            </a>
+              See all projects
+              <ArrowRight size={16} />
+            </Link>
           </motion.div>
         </motion.div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t py-8 px-6 text-center text-sm text-muted-foreground">
-        <p>&copy; {new Date().getFullYear()} Lina Laaraich. All rights reserved.</p>
-      </footer>
     </div>
   );
 }

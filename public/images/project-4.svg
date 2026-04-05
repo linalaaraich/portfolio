@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14532d"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="300" fill="url(#g4)"/>
+  <!-- UI Component grid -->
+  <g opacity="0.9">
+    <!-- Button components -->
+    <rect x="40" y="40" width="100" height="36" rx="18" fill="#059669" opacity="0.4"/>
+    <rect x="60" y="53" width="60" height="8" rx="4" fill="white" opacity="0.3"/>
+
+    <rect x="160" y="40" width="100" height="36" rx="18" fill="white" opacity="0.08" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+    <rect x="180" y="53" width="60" height="8" rx="4" fill="white" opacity="0.15"/>
+
+    <!-- Card component -->
+    <rect x="40" y="100" width="220" height="120" rx="12" fill="white" opacity="0.06"/>
+    <rect x="55" y="115" width="190" height="50" rx="8" fill="white" opacity="0.04"/>
+    <rect x="55" y="175" width="80" height="8" rx="4" fill="white" opacity="0.1"/>
+    <rect x="55" y="190" width="140" height="6" rx="3" fill="white" opacity="0.06"/>
+
+    <!-- Toggle -->
+    <rect x="300" y="50" width="44" height="24" rx="12" fill="#059669" opacity="0.4"/>
+    <circle cx="332" cy="62" r="9" fill="white" opacity="0.5"/>
+
+    <!-- Input -->
+    <rect x="300" y="100" width="250" height="40" rx="8" fill="white" opacity="0.05" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+    <rect x="315" y="116" width="100" height="6" rx="3" fill="white" opacity="0.08"/>
+
+    <!-- Badge components -->
+    <rect x="300" y="165" width="60" height="24" rx="12" fill="#059669" opacity="0.2"/>
+    <rect x="310" y="174" width="40" height="6" rx="3" fill="white" opacity="0.2"/>
+    <rect x="370" y="165" width="50" height="24" rx="12" fill="white" opacity="0.06"/>
+    <rect x="380" y="174" width="30" height="6" rx="3" fill="white" opacity="0.1"/>
+    <rect x="430" y="165" width="70" height="24" rx="12" fill="#34d399" opacity="0.15"/>
+    <rect x="445" y="174" width="40" height="6" rx="3" fill="white" opacity="0.15"/>
+
+    <!-- Slider -->
+    <rect x="300" y="215" width="250" height="4" rx="2" fill="white" opacity="0.1"/>
+    <rect x="300" y="215" width="150" height="4" rx="2" fill="#059669" opacity="0.4"/>
+    <circle cx="450" cy="217" r="8" fill="#10b981" opacity="0.5"/>
+  </g>
+  <!-- Sparkles -->
+  <g fill="#6ee7b7" opacity="0.2">
+    <polygon points="520,40 522,35 524,40 522,45"/>
+    <polygon points="518,40 522,38 526,40 522,42"/>
+  </g>
+</svg>

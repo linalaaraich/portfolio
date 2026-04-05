@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#bg)"/>
+  <!-- Shoulders -->
+  <ellipse cx="100" cy="210" rx="70" ry="50" fill="#059669"/>
+  <!-- Neck -->
+  <rect x="85" y="140" width="30" height="25" rx="5" fill="#d4a574"/>
+  <!-- Face -->
+  <ellipse cx="100" cy="110" rx="42" ry="48" fill="#deb887"/>
+  <!-- Hair back -->
+  <ellipse cx="100" cy="80" rx="48" ry="40" fill="url(#hair)"/>
+  <!-- Hair front/bangs -->
+  <path d="M55 85 C55 55, 100 45, 100 55 C100 45, 145 55, 145 85 C145 70, 125 60, 100 62 C75 60, 55 70, 55 85Z" fill="url(#hair)"/>
+  <!-- Hair sides -->
+  <ellipse cx="58" cy="110" rx="12" ry="30" fill="url(#hair)"/>
+  <ellipse cx="142" cy="110" rx="12" ry="30" fill="url(#hair)"/>
+  <!-- Eyes -->
+  <ellipse cx="82" cy="108" rx="6" ry="5" fill="#1a1a2e"/>
+  <ellipse cx="118" cy="108" rx="6" ry="5" fill="#1a1a2e"/>
+  <circle cx="84" cy="106" r="1.5" fill="white" opacity="0.8"/>
+  <circle cx="120" cy="106" r="1.5" fill="white" opacity="0.8"/>
+  <!-- Eyebrows -->
+  <path d="M74 98 Q82 94 90 98" stroke="#1a1a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M110 98 Q118 94 126 98" stroke="#1a1a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M98 115 Q100 120 102 115" stroke="#c49a6c" stroke-width="1" fill="none"/>
+  <!-- Smile -->
+  <path d="M88 125 Q100 135 112 125" stroke="#c49a6c" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Blush -->
+  <circle cx="74" cy="120" r="8" fill="#e8a0a0" opacity="0.25"/>
+  <circle cx="126" cy="120" r="8" fill="#e8a0a0" opacity="0.25"/>
+  <!-- Sparkle decorations -->
+  <g fill="#6ee7b7" opacity="0.6">
+    <polygon points="25,30 27,25 29,30 27,35" />
+    <polygon points="23,30 27,28 31,30 27,32" />
+    <polygon points="170,45 172,40 174,45 172,50" />
+    <polygon points="168,45 172,43 176,45 172,47" />
+    <polygon points="160,170 162,165 164,170 162,175" />
+    <polygon points="158,170 162,168 166,170 162,172" />
+  </g>
+</svg>
